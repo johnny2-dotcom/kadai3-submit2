@@ -1,0 +1,44 @@
+<html>
+    <head>
+        <title>eelテスト</title>
+        
+        <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/css/bootstrap.min.css" integrity="sha384-B0vP5xmATw1+K9KRQjQERJvTumQW0nPEzvF6L/Z6nronJ3oUOFUFpCjEUQouq2+l" crossorigin="anonymous">
+        <link rel="stylesheet" href="./style.css">
+
+    </head>
+    <body>
+        <div class="container">
+            <div class="col-sm-8 offset-sm">
+                <h2>eelテスト</h2>
+
+                <div class="form-group">
+                    <label for="csv_name">CSVファイル名</label>
+                    <input id="csv_name" type="text" class="form-control">
+
+                    <label for="search_word">検索ワード</label>
+                    <input id="search_word" type="text" class="form-control" required>
+
+                    <button id="search" class="btn btn-primary">検索実行</button><br/>
+
+                    <label for="result">検索結果</label>
+                    <textarea id="result" class="form-control" rows=8></textarea>
+
+                </div>
+            </div>
+        </div>
+
+        <script type="text/javascript" src="./eel.js"></script>
+        <script>
+            search.addEventListener('click', () => {
+                //alert(serch_word.value)
+                eel.kimetsu_search(search_word.value,csv_name.value)
+            })
+
+            eel.expose(view_log_js)
+            function view_log_js(text){
+                result.value += text + "\n"
+            }
+        </script>
+    
+    </body>
+</html>
